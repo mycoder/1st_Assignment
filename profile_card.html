@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/e0aa6e03e3.js" crossorigin="anonymous"></script>
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=DM+Sans:400,500|Jost:400,500,600&display=swap");
+
+        * {
+        box-sizing: border-box;
+        }
+        /* https://i.imgur.com/RJKOz7c.jpeg https://i.imgur.com/H0gin2n.jpeg*/
+        body {
+        color: #2b2c48;
+        font-family: "Jost", sans-serif;
+        background-image: url(https://i.imgur.com/RJKOz7c.jpeg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        min-height: 100vh;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 20px;
+        }
+
+        .card {
+        max-width: 400px;
+        height: 450px;
+        margin: auto;
+        overflow-y: auto;
+        position: relative;
+        z-index: 1;
+        overflow-x: hidden;
+        background-color: white;
+        display: flex;
+        transition: 0.3s;
+        flex-direction: column;
+        border-radius: 10px;
+        box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.2);
+        }        
+
+        .card-header {
+        position: relative;
+        display: flex;
+        height: 200px;
+        flex-shrink: 0;
+        width: 100%;
+        transition: 0.3s;
+        }
+
+        .card-header * {
+        transition: 0.3s;
+        }
+
+        .card-cover {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: -20%;
+        left: 0;
+        will-change: top;
+        background-size: cover;
+        background-position: center;
+        filter: blur(30px);
+        transform: scale(1.2);
+        transition: 0.5s;
+        }
+
+        .card-avatar {
+        width: 100px;
+        height: 100px;
+        box-shadow: 0 8px 8px rgba(0, 0, 0, 0.2);
+        border-radius: 50%;
+        -o-object-position: center;
+            object-position: center;
+        -o-object-fit: cover;
+            object-fit: cover;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%) translateY(-64px);
+        }
+
+        .card-fullname {
+        position: absolute;
+        bottom: 0;
+        font-size: 22px;
+        font-weight: 700;
+        text-align: center;
+        white-space: nowrap;
+        transform: translateY(-10px) translateX(-50%);
+        left: 50%;
+        }
+
+        .card-jobtitle {
+        position: absolute;
+        bottom: 0;
+        font-size: 11px;
+        white-space: nowrap;
+        font-weight: 500;
+        opacity: 0.7;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        margin: 0;
+        left: 50%;
+        transform: translateX(-50%) translateY(-7px);
+        }
+
+        .card-main {
+        position: relative;
+        flex: 1;
+        display: flex;
+        padding-top: 10px;
+        flex-direction: column;
+        }
+
+        .card-subtitle {
+        font-weight: 700;
+        font-size: 13px;
+        margin-bottom: 8px;
+        }
+
+        .card-content {
+        padding: 20px;
+        }
+
+        .card-desc {
+        line-height: 1.6;
+        color: #636b6f;
+        font-size: 14px;
+        margin: 0;
+        font-weight: 400;
+        font-family: "DM Sans", sans-serif;
+        }
+
+        .card-email {
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        margin-bottom: 15px;
+        margin-left: 59px;
+        text-align: center;
+        }
+
+        .card-email i, .card-cell i {
+            margin-right: 7px;            
+        }
+
+        .card-cell {
+        display: flex;
+        align-items: center;
+        padding: 0 20px;        
+        margin-left: 95px;
+        text-align: center;
+        }
+
+        .card-section {
+        display: none;
+        }
+        .card-section.is-active {
+        display: block;
+        -webkit-animation: fadeIn 0.6s both;
+                animation: fadeIn 0.6s both;
+        }
+
+        @-webkit-keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translatey(40px);
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translatey(40px);
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+       
+    </style>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Profile Card</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />    
+  </head>
+  <body>
+    <div class="card" data-state="#about">
+        <div class="card-header">
+            <div class="card-cover" style="background-image: url('https://i.imgur.com/BkOtU8U.jpg')"></div>
+            <img class="card-avatar" src="https://i.imgur.com/BkOtU8U.jpg" alt="avatar" />
+            <h1 class="card-fullname">Mohammad Yeasin</h1>
+            <h2 class="card-jobtitle">Web Developer</h2>
+        </div>
+        <div class="card-main">
+            <div class="card-section is-active" id="about">
+                <div class="card-content">
+                    <div class="card-subtitle">ABOUT</div>
+                    <p class="card-desc">
+                        I'm a passionate Web Developer with a love for building innovative web applications. 
+                        I enjoy tackling complex problems and collaborating with talented teams.
+                    </p>            
+                </div>
+                <div class="card-email">                        
+                    <i class="fa-regular fa-envelope"></i> mohammadyeasin91@hotmail.com
+                </div>
+
+                <div class="card-cell">                        
+                    <i class="fa-solid fa-phone"></i> +8801737733213
+                </div>
+            </div>       
+        </div>
+    </div>    
+  </body>
+</html>
+</body>
+</html>
